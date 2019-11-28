@@ -14,8 +14,12 @@ function BatteryHookContainer() {
   const level = arr[0];
   const setLevel = arr[1];
 
-   console.log(arr);
+  console.log(arr);
   */
+  function updateBattery(data) {
+    setBatteryData(data);
+  }
+
   useEffect(() => {
     register(updateBattery);
     //console.log("useEffect se llamó");
@@ -24,10 +28,6 @@ function BatteryHookContainer() {
       unregister(updateBattery);
     };
   }, []); // es como el didMount y willUnmount en un componente de clase
-
-  function updateBattery(data) {
-    setBatteryData(data);
-  }
 
   return (
     <>
