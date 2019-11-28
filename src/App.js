@@ -4,11 +4,21 @@ import BatteryHookContainer from "./components/BatteryHookContainer/BatteryHookC
 
 function App() {
   return (
-    <>
+    <div style={styles.container}>
       <BatteryContainer />
       <BatteryHookContainer />
-    </>
+    </div>
   );
 }
+
+const styles = {
+  container: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "#efe"
+  }
+};
 
 export default App;
