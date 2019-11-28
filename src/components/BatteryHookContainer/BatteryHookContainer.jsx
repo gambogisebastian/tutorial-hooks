@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Battery from "../Battery/Battery";
-import { register, unRegister } from "../../utils/battery";
+import { register, unregister } from "../../utils/battery";
 
 function BatteryHookContainer() {
   const [batteryData, setBatteryData] = useState({
@@ -17,8 +17,13 @@ function BatteryHookContainer() {
    console.log(arr);
   */
   useEffect(() => {
-    console.log("useEffect se llamó");
-  }, []);
+    register(updateBattery);
+    //console.log("useEffect se llamó");
+    // Devuelve una función de limpieza
+    return () => {
+      unregister(updateBattery);
+    };
+  }, []); // es como el didMount y willUnmount en un componente de clase
 
   function updateBattery(data) {
     setBatteryData(data);
