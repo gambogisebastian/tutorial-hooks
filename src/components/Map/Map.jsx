@@ -13,7 +13,7 @@ class Map extends React.Component {
         //se usa window para acceder a las variables globales del sistema
         zoom: zoom || 12,
         center: { lat, lng },
-        disableDefaultUI: false,
+        disableDefaultUI: true,
         styles: mapStyle
       });
       new window.google.maps.Marker({ position: { lat, lng }, map: map });
